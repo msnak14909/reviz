@@ -39,8 +39,9 @@ Example
 ./reviz 'a(b|c)*'
 ```
 
-DFA:
-[[https://github.com/msnak14909/reviz/raw/master/sample/dfa.png]]
+DFA:<br />
+![dfa](https://raw.githubusercontent.com/msnak14909/reviz/master/sample/dfa.png)
 
-Optimized DFA:
-[[https://github.com/msnak14909/reviz/raw/master/sample/opt.png]]
+
+Optimized DFA:<br />
+![opt](https://raw.githubusercontent.com/msnak14909/reviz/master/sample/opt.png)
