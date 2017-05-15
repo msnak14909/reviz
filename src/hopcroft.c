@@ -139,7 +139,6 @@ static int split_into_set(struct __dfa_set_state *cur,
       int mark1 = __dfa_trans_by(*s, *c);
       if (mark1 != mark) {
         split = 1;
-
         generic_set_add(s2, s, NULL);
       } else {
         generic_set_add(s1, s, NULL);
@@ -209,5 +208,5 @@ struct dfa_state *dfa_to_minimal(const struct dfa_state *state) {
   }
   destroy_dfa_set(&pset);
 
-  return pset.link->dfa_state;
+  return state->belong;
 }
