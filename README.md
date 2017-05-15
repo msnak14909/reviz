@@ -40,7 +40,7 @@ Example
 ```
 
 DFA:
-[[https://github.com/msnak14909/reviz/raw/master/dfa.png]]
+[[https://github.com/msnak14909/reviz/raw/master/sample/dfa.png]]
 
 Optimized DFA:
-[[https://github.com/msnak14909/reviz/raw/master/opt.png]]
+[[https://github.com/msnak14909/reviz/raw/master/sample/opt.png]]
