@@ -130,17 +130,14 @@ static int split_into_set(struct __dfa_set_state *cur,
   __collect_dfa_char(s0, &trans_char);
   char *c = (char *)trans_char.p_dat;
 
-  printf("=====[RESTART]======\n");
   for (int i = 0; i < trans_char.length; ++i, ++c) { /* for each character */
     struct dfa_state **s = (struct dfa_state **)s0->p_dat;
     int mark = __dfa_trans_by(*s, *c);
     int split = 0;
     for (int x = 0; x < s0->length; x++, s++) {
-      printf("=====[INDEX]: %d need goto makr %d by %c\n", (*s)->base_state.index, mark, *c);
       (*s)->belong = cur->dfa_state;
       int mark1 = __dfa_trans_by(*s, *c);
       if (mark1 != mark) {
-        printf("[!]: %d goto %d by %c\n", (*s)->base_state.index, mark1, *c);
         split = 1;
 
         generic_set_add(s2, s, NULL);
