@@ -56,7 +56,7 @@ static struct nfa __ll_fact(char **s) {
   struct nfa lhs;
   char ch = **s;
   if (is_valild_char(ch)) {
-    if (ch == '-')
+    if (ch == '_')
       lhs = nfa_node(0);
     else
       lhs = nfa_node(ch);

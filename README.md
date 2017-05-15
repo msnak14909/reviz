@@ -3,6 +3,40 @@ reviz
 
 reviz is the regular expression visualize program. (re -> nfa -> dfa -> dfa_opt)
 
+Syntax
+=====
+It's support gramar as shown below:<br />
+
+**cons:**<br />
+  AB<br />
+
+**alter:**<br />
+  A|B<br />
+
+**kleene**<br />
+  A*<br />
+
+**positive:**<br />
+  A+<br />
+
+**optional:**<br />
+  A?<br />
+
+**bracket:**<br />
+  (A)<br />
+
+
+**and characters:**<br />
+
+_ : epsilon character <br />
+
+<0-9> \<a-z\> \<A-Z\> : alphanumeric character <br />
+
+
+
+
+
+
 Usage
 =====
 
