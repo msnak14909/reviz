@@ -3,7 +3,7 @@ reviz
 
 reviz is the regular expression visualize program. (re -> nfa -> dfa -> dfa_opt)
 
-The html for demo(build by webassembly): <a href="https://rawgit.com/msnak14909/reviz/master/sample/page/index.html">DEMO</a>
+The html for demo(build by webassembly): <a href="https://rawgit.com/msnak14909/reviz/master/sample/page/index.html">DEMO</a>, but lots of bug, so the web is just for demo, lol
 
 
 Syntax
