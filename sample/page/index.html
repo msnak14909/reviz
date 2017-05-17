@@ -99,6 +99,8 @@
         </p>
       </div>
 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="http://mdaines.github.io/viz.js/bower_components/viz.js/viz.js"></script>
       <script src="./wivz.js"></script>
       <script>
 
@@ -113,10 +115,11 @@ buttonN.addEventListener('click', function() {
     let regex =  document.getElementById("regex").value;
     if(process(regex,0) == 0) {
         var dot_source = document.getElementById("dot").value;
+        $("#inputError").hide();
         let graph = Viz(dot_source, "svg");
         $("#automaton").html(graph);
         $("#automaton svg").width($("#automaton").width());
-        $("#inputError").hide();
+
     }
 }, false);
 buttonD.addEventListener('click', function() {
@@ -142,8 +145,8 @@ buttonO.addEventListener('click', function() {
 }, false);
 
       </script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
       <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
-      <script src="http://mdaines.github.io/viz.js/bower_components/viz.js/viz.js"></script>
+
   </body>
 </html>
