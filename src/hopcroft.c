@@ -130,6 +130,9 @@ static int split_into_set(struct __dfa_set_state *cur,
   __collect_dfa_char(s0, &trans_char);
   char *c = (char *)trans_char.p_dat;
 
+  struct dfa_state **first = (struct dfa_state **)s0->p_dat;
+  (*first)->belong = cur->dfa_state;
+
   for (int i = 0; i < trans_char.length; ++i, ++c) { /* for each character */
     struct dfa_state **s = (struct dfa_state **)s0->p_dat;
     int mark = __dfa_trans_by(*s, *c);
@@ -156,9 +159,6 @@ static int split_into_set(struct __dfa_set_state *cur,
     generic_set_clear(s1);
     generic_set_clear(s2);
   }
-
-  destroy_generic_set(s1); free(s1);
-  destroy_generic_set(s2); free(s2);
   destroy_generic_set(&trans_char);
   return 0;
 }
@@ -175,6 +175,9 @@ static void __dfa_to_minimal_rec(struct __dfa_set *p) {
       destroy_generic_set(cur->states);
       cur->states = s1;
       __dfa_set_add_after(s2,cur);
+    } else {
+      destroy_generic_set(s1); free(s1);
+      destroy_generic_set(s2); free(s2);
     }
   }
   if (rec) __dfa_to_minimal_rec(p);
