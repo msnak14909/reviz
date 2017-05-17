@@ -123,20 +123,21 @@ buttonD.addEventListener('click', function() {
     let regex =  document.getElementById("regex").value;
     if(process(regex,1) == 0) {
         var dot_source = document.getElementById("dot").value;
+        $("#inputError").hide();
         let graph = Viz(dot_source, "svg");
         $("#automaton").html(graph);
         $("#automaton svg").width($("#automaton").width());
-        $("#inputError").hide();
     }
 }, false);
 buttonO.addEventListener('click', function() {
     let regex =  document.getElementById("regex").value;
     if(process(regex,2) == 0) {
         var dot_source = document.getElementById("dot").value;
+        $("#inputError").hide();
         let graph = Viz(dot_source, "svg");
         $("#automaton").html(graph);
         $("#automaton svg").width($("#automaton").width());
-        $("#inputError").hide();
+
     }
 }, false);
 
