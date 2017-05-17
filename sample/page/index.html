@@ -1,0 +1,148 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="rnic" />
+    <meta name="keywords" content="reviz, finite state machine, regular expression, transform, software, graphviz, dot, viz, dfa" />
+    <meta name="description" content="It's a demo of transform regular expression into optimize dfa" />
+    <meta name="viewport" content="width=device-width" />
+    <title>reviz</title>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" />
+  </head>
+  <body>
+    <div class="header">
+
+      <div class="container">
+        <h1>reviz</h1>
+        <div align="right">
+          <a href="https://github.com/msnak14909/reviz" ><font size="4px">reviz - github</font></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="container controls">
+        <hr> <p> Enter a <strong>regular expression</strong> below, it will convert to equivalent <strong>DFA</strong> with dot file and show the graph by viz.js </p>
+        <div class="row-fluid">
+          <div class="span6 column">
+            <h3> Input regex </h3>
+            <div class="instructions">
+              <p>
+                Enxter a regular expression into input field and click <strong>Generate</strong>, then it will convert this regex into <strong>NFA</strong>, <strong>DFA</strong> and
+                <strong>Minimal DFA</strong>, support these operation :
+                <ul>
+                  <li> concatenation <code>AB</code> </li>
+                  <li> alternative   <code>A|B</code> </li>
+                  <li> kleene        <code>A*</code> </li>
+                  <li> positive      <code>A+</code> </li>
+                  <li> optional      <code>A?</code> </li>
+                  <li> parentheses   <code>(A)</code> </li>
+                </ul>
+              </p>
+
+              <p>This application only consists of alphanumeric characters (e.g. <code>0</code> <code>a</code> <code>A</code> ) and <code>_</code> as epsilon character, and please ensure the input symbol without whitespace. An example of regexp: <code>a(b|c)*</code> </p>
+              <p>
+            </div>
+            <p>
+              <button id="generateNFA" class="btn">Generate NFA</button>
+              <button id="generateDFA" class="btn">Generate DFA</button>
+              <button id="generateOPT" class="btn">Generate Minimal DFA</button>
+            </p>
+
+            <p>
+              <input id="regex" type="text" class="input-block-level" placeholder="enter regexp here" spellcheck="false">
+            </p>
+
+          </div>
+
+          <div class="span6 column">
+            <h3> dot </h3>
+
+            <div class="instructions">
+              <p>
+                The region of ouput from reviz, and it will converted to transition graph in <strong>Graph</strong> by viz.js
+              </p>
+            </div>
+            <p>
+              <textarea id="dot" type="text" rows="14" class="input-block-level" placeholder="dot displayed here" spellcheck="false"></textarea>
+            </p>
+          </div>
+        </div>
+
+        <p id="inputError" class="text-error">
+        </p>
+
+        <hr />
+      </div>
+
+      <div class="container graph">
+        <h3> Graph </h3>
+
+        <p>
+          Transition graph converted from dot
+        </p>
+        <br>
+        <br>
+        <div id="automaton" align="center"> </div>
+      </div>
+
+      <style>
+        .footer {
+        position: fixed;
+        float: bottom;
+        bottom: 0;
+        };
+      </style>
+      <div class="footer">
+        <p>
+          <hr>
+          Code available on <a href="https://github.com/msnak14909/reviz">GitHub</a> and licensed under <a href="https://mit-license.org/">MIT License</a>.
+        </p>
+      </div>
+
+      <script src="./wivz.js"></script>
+      <script>
+
+var buttonN = document.getElementById('generateNFA');
+var buttonD = document.getElementById('generateDFA');
+var buttonO = document.getElementById('generateOPT');
+var output = document.getElementById('dot');
+
+var process = Module.cwrap('process', 'number', ['string', 'number'])
+
+buttonN.addEventListener('click', function() {
+    let regex =  document.getElementById("regex").value;
+    if(process(regex,0) == 0) {
+        var dot_source = document.getElementById("dot").value;
+        let graph = Viz(dot_source, "svg");
+        $("#automaton").html(graph);
+        $("#automaton svg").width($("#automaton").width());
+        $("#inputError").hide();
+    }
+}, false);
+buttonD.addEventListener('click', function() {
+    let regex =  document.getElementById("regex").value;
+    if(process(regex,1) == 0) {
+        var dot_source = document.getElementById("dot").value;
+        let graph = Viz(dot_source, "svg");
+        $("#automaton").html(graph);
+        $("#automaton svg").width($("#automaton").width());
+        $("#inputError").hide();
+    }
+}, false);
+buttonO.addEventListener('click', function() {
+    let regex =  document.getElementById("regex").value;
+    if(process(regex,2) == 0) {
+        var dot_source = document.getElementById("dot").value;
+        let graph = Viz(dot_source, "svg");
+        $("#automaton").html(graph);
+        $("#automaton svg").width($("#automaton").width());
+        $("#inputError").hide();
+    }
+}, false);
+
+      </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+      <script src="http://mdaines.github.io/viz.js/bower_components/viz.js/viz.js"></script>
+  </body>
+</html>
