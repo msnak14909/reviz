@@ -3,7 +3,7 @@ reviz
 
 reviz is the regular expression visualize program. (re -> nfa -> dfa -> dfa_opt)
 
-The html for demo(build by webassembly): <a href="https://rawgit.com/msnak14909/reviz/master/sample/page/index.html">DEMO</a>, but lots of bug, so the web is just for demo, lol
+The html for demo(build by webassembly): <a href="https://rniczh.github.io/reviz/index.html">DEMO</a>
 
 
 Syntax
@@ -43,17 +43,17 @@ _ : epsilon character <br />
 Usage
 =====
 
-just type :
+Just Enter :
 ```
 ./reviz 'a(b|c)*'
 ```
-It will produce nfa.dot, dfa.dot, opt.dot
+It will generate nfa.dot, dfa.dot, opt.dot files
 
-or type :
+Or Enter :
 ```
 ./reviz_dot 'a(b|c)*'
 ```
-It will convert these .dot file into .png file, however, you need to ensure that you have dot program already, if not, you can install 'graphviz' by using pacman, apt ... etc.
+It will convert these .dot file into .png file, however, you need to ensure that you have `dot` program already, if not, you can install `graphviz` by using pacman, apt ... etc.
 
 
 Install
@@ -67,7 +67,7 @@ Dependencies:
 $ make
 ```
 
-and you will see two executable under directory: reviz reviz_dot
+and you will see two executable be generated under program root directory: reviz reviz_dot
 
 Example
 ========
@@ -77,8 +77,8 @@ Example
 ```
 
 DFA:<br />
-![dfa](https://raw.githubusercontent.com/msnak14909/reviz/master/sample/dfa.png)
+![dfa](https://i.imgur.com/tyst1LK.png)
 
 
 Optimized DFA:<br />
-![opt](https://raw.githubusercontent.com/msnak14909/reviz/master/sample/opt.png)
+![opt](https://i.imgur.com/XeLITca.png)
